@@ -21,7 +21,7 @@ const CityMapSelect = ({ cities }: Props) => {
   };
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
-    googleMapsApiKey: "AIzaSyBXJUyhWG4f1oLd3xA7av6ajffYRbZhuk8",
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY as string,
   });
   const onLoad = React.useCallback(function callback(map: any) {
     const bounds = new window.google.maps.LatLngBounds(center);
@@ -82,6 +82,7 @@ const CityMapSelect = ({ cities }: Props) => {
           streetViewControl: false,
           mapTypeControl: false,
           zoomControl: false,
+          keyboardShortcuts: false,
         }}
       >
         {cities.map((city, i) => {
