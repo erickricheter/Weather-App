@@ -7,6 +7,7 @@ import { CityDetailsData } from "../../@types/CityDetailsData";
 import { BodySearch, Container } from "./Search.styles";
 import NavHeader from "../../components/NavHeader/NavHeader";
 import CityInput from "./components/CityInput/CityInput";
+import CityMapSelect from "./components/CityMapSelect/CityMapSelect";
 // import { Container } from './styles';
 
 const Search = () => {
@@ -33,10 +34,7 @@ const Search = () => {
       <NavHeader />
       <BodySearch>
         <CityInput handleSearch={handleSearch}></CityInput>
-        <CitySelect
-          handleGetDetails={handleGetDetails}
-          citiesData={citiesData}
-        ></CitySelect>
+        <CityMapSelect cities={citiesData}></CityMapSelect>
       </BodySearch>
       <div>FOOTER</div>
       {/* {cityDetals ? <CityDetails cityDetals={cityDetals}></CityDetails> : null} */}

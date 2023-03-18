@@ -10,7 +10,19 @@ interface Props {
 const CityInput = ({ handleSearch }: Props) => {
   return (
     <Container>
-      <input type={"text"} onKeyDown={handleSearch}></input>
+      <>
+        <input
+          type={"text"}
+          onKeyDown={handleSearch}
+          id="span-text"
+          placeholder=" "
+        ></input>
+        <label htmlFor="span-text">
+          <div>
+            <span>Where are you?</span>
+          </div>
+        </label>
+      </>
     </Container>
   );
 };

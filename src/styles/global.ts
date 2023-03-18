@@ -6,6 +6,7 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0px;
     box-sizing: border-box;
     outline: none;
+    font-family: "Montserrat", sans-serif;
   }
   body, HTML, #root, .App {
     width: 100vw;
