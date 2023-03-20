@@ -1,5 +1,8 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
+import { WeatherDetailProvider } from "./context/WeatherDetailContext";
 import Search from "./pages/Search/Search";
+import WeatherDetails from "./pages/WeatherDetails/WeatherDetails";
 import { GlobalStyle } from "./styles/global";
 
 function App() {
@@ -7,7 +10,15 @@ function App() {
     <ThemeProvider theme={{}}>
       <GlobalStyle></GlobalStyle>
       <div className="App">
-        <Search></Search>
+        <BrowserRouter>
+          <WeatherDetailProvider>
+            <Routes>
+              <Route index element={<Search />} />
+              <Route path="weatherDetails" element={<WeatherDetails />} />
+              <Route path="*" element={<Search />} />
+            </Routes>
+          </WeatherDetailProvider>
+        </BrowserRouter>
       </div>
     </ThemeProvider>
   );

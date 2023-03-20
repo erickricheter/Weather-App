@@ -7,13 +7,13 @@ export const Container = styled.div`
   justify-content: center;
   input {
     ${DefaultInput}
-    transition: 25s ease all;
+    transition: 0.5s ease all;
     position: relative;
     border: none;
     border-bottom: 1px solid #ffff;
     background-color: transparent;
     text-align: center;
-    font-size: 40px;
+    font-size: 2rem;
     color: #ffff;
     line-height: 70px;
     width: 100%;

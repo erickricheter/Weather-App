@@ -12,6 +12,7 @@ const CityInput = ({ handleSearch }: Props) => {
     <Container>
       <>
         <input
+          autoComplete="off"
           type={"text"}
           onKeyDown={handleSearch}
           id="span-text"

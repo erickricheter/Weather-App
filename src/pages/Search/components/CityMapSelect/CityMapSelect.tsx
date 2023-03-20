@@ -4,13 +4,14 @@ import { Container, MapButton } from "./CityMapaSelect.styles";
 import { CityData } from "../../../../@types/CityData";
 interface Props {
   cities: CityData[];
+  handleGetDetails: (key: string) => Promise<void>;
 }
 
 const center = {
-  lat: -3.745,
-  lng: -38.523,
+  lat: -24.863810763470887,
+  lng: -50.914997285257,
 };
-const CityMapSelect = ({ cities }: Props) => {
+const CityMapSelect = ({ cities, handleGetDetails }: Props) => {
   const [map, setMap] = React.useState(null);
   const [zoom, setZoom] = React.useState(2);
   const handleZoomIn = () => {
@@ -44,7 +45,7 @@ const CityMapSelect = ({ cities }: Props) => {
         mapContainerStyle={{
           width: "100%",
           height: "300px",
-          borderRadius: "30px",
+          borderRadius: "15px",
           padding: "100px",
         }}
         options={{
@@ -85,12 +86,20 @@ const CityMapSelect = ({ cities }: Props) => {
           keyboardShortcuts: false,
         }}
       >
-        {cities.map((city, i) => {
+        {cities.map((city) => {
           const position = {
             lat: city.GeoPosition.Latitude,
             lng: city.GeoPosition.Longitude,
           };
-          return <Marker position={position}></Marker>;
+          return (
+            <Marker
+              position={position}
+              key={city.Key}
+              onClick={() => {
+                handleGetDetails(city.Key);
+              }}
+            ></Marker>
+          );
         })}
       </GoogleMap>
     </Container>

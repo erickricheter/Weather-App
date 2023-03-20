@@ -2,8 +2,10 @@ import React from "react";
 import { TbVirusSearch } from "react-icons/tb";
 import { TiWeatherCloudy } from "react-icons/ti";
 import { Container } from "./NavHeader.styles";
+import { useNavigate } from "react-router-dom";
 
 const NavHeader = () => {
+  const navigate = useNavigate();
   return (
     <Container>
       <h1>
@@ -11,7 +13,7 @@ const NavHeader = () => {
       </h1>
       <span
         onClick={() => {
-          alert("Me clicou tá");
+          navigate("/");
         }}
       >
         <TbVirusSearch />
