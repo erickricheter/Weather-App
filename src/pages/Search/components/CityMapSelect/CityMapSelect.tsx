@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 import { Container, MapButton } from "./CityMapaSelect.styles";
 import { CityData } from "../../../../@types/CityData";
+import { WeatherDetailContext } from "../../../../context/WeatherDetailContext";
 interface Props {
   cities: CityData[];
   handleGetDetails: (key: string) => Promise<void>;
@@ -12,6 +13,7 @@ const center = {
   lng: -50.914997285257,
 };
 const CityMapSelect = ({ cities, handleGetDetails }: Props) => {
+  const { setCityData } = useContext(WeatherDetailContext);
   const [map, setMap] = React.useState(null);
   const [zoom, setZoom] = React.useState(2);
   const handleZoomIn = () => {
@@ -97,6 +99,7 @@ const CityMapSelect = ({ cities, handleGetDetails }: Props) => {
               key={city.Key}
               onClick={() => {
                 handleGetDetails(city.Key);
+                setCityData(city);
               }}
             ></Marker>
           );

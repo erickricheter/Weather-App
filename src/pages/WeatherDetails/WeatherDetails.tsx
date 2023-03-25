@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import Footer from "../../components/Footer/Footer";
+import LateralMenu from "../../components/LateralMenu/LateralMenu";
 import NavHeader from "../../components/NavHeader/NavHeader";
 import { WeatherDetailContext } from "../../context/WeatherDetailContext";
 import WeatherBody from "./components/WeatherBody/WeatherBody";
-import { Container } from "./WeatherDetails.style";
+import { BodyWrapper, Container } from "./WeatherDetails.style";
 
 const WeatherDetails = () => {
   const { cityDetails } = useContext(WeatherDetailContext);
@@ -36,9 +37,12 @@ const WeatherDetails = () => {
       >
         <source src={getVideoUrl()} type="video/mp4"></source>
       </video>
-      <NavHeader></NavHeader>
-      <WeatherBody></WeatherBody>
-      <Footer></Footer>
+      <BodyWrapper>
+        <NavHeader></NavHeader>
+        <WeatherBody></WeatherBody>
+        <Footer></Footer>
+      </BodyWrapper>
+      <LateralMenu></LateralMenu>
     </Container>
   );
 };
